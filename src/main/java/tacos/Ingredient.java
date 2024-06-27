@@ -21,7 +21,7 @@ public class Ingredient implements Persistable<String> {
 
     @Override
     public boolean isNew() {
-        return false;
+        return true;
     }
 
     public enum Type {
