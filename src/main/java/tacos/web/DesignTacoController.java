@@ -11,6 +11,7 @@ import tacos.Ingredient;
 import tacos.Taco;
 import tacos.TacoOrder;
 import tacos.data.IngredientRepository;
+import tacos.data.TacoRepository;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,10 +26,12 @@ import static tacos.Ingredient.Type;
 public class DesignTacoController {
 
     private final IngredientRepository ingredientRepo;
+    private final TacoRepository tacoRepository;
 
     @Autowired
-    public DesignTacoController(IngredientRepository ingredientRepository) {
+    public DesignTacoController(IngredientRepository ingredientRepository, TacoRepository tacoRepository) {
         this.ingredientRepo = ingredientRepository;
+        this.tacoRepository = tacoRepository;
     }
 
     @ModelAttribute
@@ -65,7 +68,8 @@ public class DesignTacoController {
             return "design";
         }
 
-        tacoOrder.addTaco(taco);
+        Taco saved = tacoRepository.save(taco);
+        tacoOrder.addTaco(saved);
         log.info("Processing taco: {}", taco);
 
         return "redirect:/orders/current";

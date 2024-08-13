@@ -8,8 +8,5 @@ spring:
     generate-unique-name: false
     name: taco-cloud-db
 
-  data:
-    mongodb:
-      host: localhost
-      port: 27017
-      database: taco_cloud_db
+
+    url: jdbc:h2:mem:tacocloud;NON_KEYWORDS=user
