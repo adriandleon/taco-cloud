@@ -8,5 +8,13 @@ spring:
     generate-unique-name: false
     name: taco-cloud-db
 
-
     url: jdbc:h2:mem:tacocloud;NON_KEYWORDS=user
+
+  security:
+    oauth2:
+      client:
+        registration:
+          facebook:
+            clientId: <facebook client id>
+            clientSecret: <facebook client secret>
+            scope: email, public_profile

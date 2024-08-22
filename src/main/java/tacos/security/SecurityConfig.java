@@ -49,6 +49,10 @@ public class SecurityConfig {
                 .requestMatchers("/", "/**").permitAll()
         ).formLogin(formLogin -> formLogin
                 .loginPage("/login")
+        ).oauth2Login(oAuth2Login ->
+                oAuth2Login.loginPage("/login")
+        ).logout( logout ->
+                logout.logoutSuccessUrl("/")
         ).build();
     }
 }
