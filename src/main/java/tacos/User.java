@@ -61,6 +61,4 @@ public class User implements UserDetails {
     public boolean isCredentialsNonExpired() {
         return true;
     }
-
-    // This line should be deleted
 }
